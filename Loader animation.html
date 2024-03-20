@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Loading Animation</title>
+
+    <style>
+        h1 {
+            color: #fff; 
+            text-shadow: 0 0 10px #ff0090, 
+                     0 0 20px #ff008c,
+                     0 0 30px #00ff2a,
+                     0 0 40px #00ffaa,
+                     0 0 70px #00ff8c,
+                     0 0 80px #00f2ff,
+                     0 0 100px #00b7ff,
+                     0 0 150px #0062ff;
+            position: absolute;
+            height: 70vh;
+            animation: flicker 3s infinite;
+            
+        }
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #060606f1;
+            border: 10px rgb(123, 255, 143);
+            border-style: groove;
+            
+        }
+        
+    .loader {
+        position: relative;
+        width: 160px;
+        height: 160px;
+        border: 4px solid #060606c4;
+        overflow: hidden;
+        border-radius: 50%;
+        box-shadow: -5px -5px -5px rgba(255, 255, 255, 0.1),
+                    10px 10px 10px rgba(0, 0, 0, 0.4),
+                    inset -5px -5px -5px rgba(255, 255, 255, 0.2),
+                    inset 10px 10px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    .loader:before {
+        content: "";
+        position: absolute;
+        top: 25px;
+        left: 25px;
+        right: 25px;
+        bottom: 25px;
+        z-index: 10;
+        background: #212121;
+        border-radius: 50%;
+        border: 2px solid #292929;
+        box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 0.2),
+                    inset 3px 3px 5px rgba(0, 0, 0, 0.5);
+    }
+    
+    .loader span {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-image: linear-gradient(-225deg, #ff7402 0%, #ffe700 50%, #ffe55e 100%);
+        filter: blur(20px);
+        z-index: -1;
+        animation: animate 0.5s linear infinite, hue 3s linear infinite;
+    
+    }
+
+    footer {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        border-top-left-radius: 10px;
+        font-family: Arial, sans-serif;
+    }
+    
+    @keyframes flicker {
+        0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+            opacity: 1;
+        }
+        20%, 22%, 24%, 26%, 55% {
+            opacity: 0;
+        }
+    }
+    
+    @keyframes animate {
+        0% {
+            transform: rotate(0deg);
+        }
+        
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    
+    @keyframes hue {
+        0% {
+            filter: hue-rotate(0deg);
+        }
+    
+        100% {
+            filter: hue-rotate(360deg);
+        }
+    }
+    
+    </style>
+    
+</head>
+<body>
+    <div class="loader">
+        <span></span>
+    </div>
+
+    <h1>Loading Animation</h1>
+
+    <footer>
+        &copy; Twinkle Thakrar 
+    </footer>
+
+</body>
+</html>
